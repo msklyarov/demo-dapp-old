@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import Footer from './footer'
 import NavBar from './navbar'
-import FilteringBlock from './filtering-block'
+import FacetBlock from './facet-block'
 
 const Layout = ({ children }) => (
   <Fragment>
@@ -9,7 +9,7 @@ const Layout = ({ children }) => (
       <NavBar />
       <section style={{ margin: 'auto' }}>
         <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
-          {window.location.href.endsWith('/#/') && <FilteringBlock/>}
+          {window.location.href.endsWith('/#/') && <FacetBlock/>}
         </div>
         <div
           style={{ display: 'inline-block' }}

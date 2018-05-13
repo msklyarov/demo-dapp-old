@@ -16,7 +16,7 @@ import cosmeticsJson from '../../public/schemas/cosmetics.json';
 
 import '../css/hidden.css'
 
-class SortingBlock extends Component {
+class FacetBlock extends Component {
   constructor(props) {
     super(props)
 
@@ -89,10 +89,24 @@ class SortingBlock extends Component {
     const listingTypes = ["Beauty services", "Cosmetics"]
 
     return (
-      <section id="filtering-block" className="hidden">
+      <section
+        id="filtering-block"
+        className="hidden"
+        style={{
+          margin: '40px 20px'
+        }}
+      >
         <form className="filtering">
           <div>
-            <label style={{ color: 'black' }} htmlFor="location">Location</label>
+            <label
+              style={{
+                color: 'black',
+                fontWeight: 'bold'
+              }}
+              htmlFor="location"
+            >
+              Location
+            </label>
           </div>
           <div>
             <input
@@ -103,8 +117,16 @@ class SortingBlock extends Component {
               value={this.state.location}
             />
           </div>
-          <div>
-            <label style={{ color: 'black' }} htmlFor="name">Item name</label>
+          <div style={{ marginTop: "0.5em" }}>
+            <label
+              style={{
+                color: 'black',
+                fontWeight: 'bold'
+              }}
+              htmlFor="name"
+            >
+              Item name
+            </label>
           </div>
           <div>
             <input
@@ -115,63 +137,96 @@ class SortingBlock extends Component {
               value={this.state.name}
             />
           </div>
-          <div>
-            Show types
-          </div>
-          {/*{listingTypes.map((item, i) => (*/}
-            {/*<div key={i}>*/}
-              {/*<input*/}
-                {/*id={i}*/}
-                {/*type="checkbox"*/}
-                {/*checked={this.state.listingTypes.includes(item)}*/}
-                {/*onChange={this.handleCheckBoxValueChange('listingTypes', item)}*/}
-              {/*/>*/}
-              {/*<label style={{ color: 'black' }} htmlFor={i}>{item}</label>*/}
-            {/*</div>*/}
-          {/*))}*/}
-          <div>
+          <hr />
+          <div style={{ fontWeight: 'bold' }}>
             Show categories
           </div>
-          {beautyServicesList.map((item, i) => (
-            <div key={i}>
-              <input
-                id={item}
-                type="checkbox"
-                checked={this.state.beautyServices.includes(item)}
-                onChange={this.handleCheckBoxValueChange('beautyServices', item)}
-              />
-              <label style={{ color: 'black' }} htmlFor={item}>{item.substring(0, 25)}</label>
-            </div>
-          ))}
-          {/*{cosmeticsList.map((item, i) => (*/}
-            {/*<div key={i}>*/}
-              {/*<input*/}
-                {/*id={item}*/}
-                {/*type="checkbox"*/}
-                {/*checked={this.state.cosmetics.includes(item)}*/}
-                {/*onChange={this.handleCheckBoxValueChange('cosmetics', item)}*/}
-              {/*/>*/}
-              {/*<label style={{ color: 'black' }} htmlFor={item}>{item.substring(0, 25)}</label>*/}
-            {/*</div>*/}
-          {/*))}*/}
-
-          <div>
-            Select day(s) of the week
+          <details style={{ margin: '0.5em 0' }}>
+            <summary>{listingTypes[0]}</summary>
+            <section style={{ marginTop: '0.5em' }}>
+              {beautyServicesList.map((item, i) => (
+                <div key={i} style={{ marginLeft: '1em' }}>
+                  <input
+                    id={item}
+                    type="checkbox"
+                    checked={this.state.beautyServices.includes(item)}
+                    onChange={this.handleCheckBoxValueChange('beautyServices', item)}
+                  />
+                  <label
+                    style={{
+                      color: 'black',
+                      marginBottom: '3px'
+                    }}
+                    htmlFor={item}
+                  >
+                    {item.substring(0, 25)}
+                    </label>
+                </div>
+              ))}
+            </section>
+          </details>
+          <details style={{ margin: '0.5em 0' }}>
+            <summary>{listingTypes[1]}</summary>
+            <section style={{ marginTop: '0.5em' }}>
+              {cosmeticsList.map((item, i) => (
+                <div key={i} style={{ marginLeft: '1em' }}>
+                  <input
+                    id={item}
+                    type="checkbox"
+                    checked={this.state.cosmetics.includes(item)}
+                    onChange={this.handleCheckBoxValueChange('cosmetics', item)}
+                  />
+                  <label
+                    style={{
+                      color: 'black',
+                      marginBottom: '3px'
+                    }}
+                    htmlFor={item}
+                  >
+                    {item.substring(0, 25)}
+                  </label>
+                </div>
+              ))}
+            </section>
+          </details>
+          <hr />
+          <div style={{ fontWeight: 'bold' }}>
+            Select timeframe
           </div>
-          {weekDaysList.map((item, i) => (
-            <div key={i}>
-              <input
-                id={item}
-                type="checkbox"
-                checked={this.state.weekDays.includes(item)}
-                onChange={this.handleCheckBoxValueChange('weekDays', item)}
-              />
-              <label style={{ color: 'black' }} htmlFor={item}>{item}</label>
-            </div>
-          ))}
-
+          <details style={{ margin: '0.5em 0' }}>
+            <summary>Select days of the week</summary>
+            <section style={{ marginTop: '0.5em' }}>
+              {weekDaysList.map((item, i) => (
+                <div key={i} style={{ marginLeft: '1em' }}>
+                  <input
+                    id={item}
+                    type="checkbox"
+                    checked={this.state.weekDays.includes(item)}
+                    onChange={this.handleCheckBoxValueChange('weekDays', item)}
+                  />
+                  <label
+                    style={{
+                      color: 'black',
+                      marginBottom: '3px'
+                    }}
+                    htmlFor={item}
+                  >
+                    {item}
+                  </label>
+                </div>
+              ))}
+            </section>
+          </details>
           <div>
-            Hours
+            <label
+              style={{
+                color: 'black',
+                fontWeight: 'bold'
+              }}
+              htmlFor="dayHourFrom"
+            >
+              Hours
+            </label>
           </div>
           <div>
             <input
@@ -192,8 +247,17 @@ class SortingBlock extends Component {
               value={this.state.dayHourTo}
             />
           </div>
+          <hr />
           <div>
-            <label style={{ color: 'black' }} htmlFor="sortBy">Sort by</label>
+            <label
+              style={{
+                color: 'black',
+                fontWeight: 'bold'
+              }}
+              htmlFor="sortBy"
+            >
+              Sort by
+            </label>
           </div>
           <select
             id="sortBy"
@@ -230,5 +294,5 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  withRouter(SortingBlock)
+  withRouter(FacetBlock)
 )
