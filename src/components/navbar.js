@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+
 import Notification from './notification'
 import data from '../data'
+
+import NavBarFacetSwitch from './navbar-facet-switch'
 
 class NavBar extends Component {
   constructor(props) {
     super(props)
 
     this.handleChange = this.handleChange.bind(this)
+
     this.state = { searchQuery: '' }
   }
 
@@ -29,10 +33,11 @@ class NavBar extends Component {
           </button>
           <Link to="/" className="navbar-brand mr-auto mr-lg-3">
             <div className="logo-container">
-              <img src="/images/origin-logo.svg" className="origin-logo" alt="Origin Protocol" />
+              <img src="/images/jolly-logo.svg" height="21" className="origin-logo" alt="Origin Protocol" />
             </div>
           </Link>
           <div className="collapse navbar-collapse order-2 order-lg-1" id="navbarSupportedContent">
+            {window.location.href.endsWith('/#/') && <NavBarFacetSwitch />}
             <form className="form-inline my-2 my-lg-0">
               <input className="form-control mr-sm-2" type="search" placeholder="Search Listings" aria-label="Search" onChange={this.handleChange} value={this.state.searchQuery} />
             </form>

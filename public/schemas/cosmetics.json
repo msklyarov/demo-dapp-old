@@ -1,0 +1,56 @@
+{
+  "$schema":"http://json-schema.org/draft-06/schema#",
+  "description": "Distributed by Jolly",
+  "type": "object",
+  "required": ["name","category","description","price"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Title",
+      "minLength": 3,
+      "maxLength": 100
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "enum": [
+        "Bath Preparations",
+        "Eye Makeup Preparations",
+        "Fragrance Preparations",
+        "Hair Preparations (non-coloring)",
+        "Hair Coloring Preparations",
+        "Makeup Preparations (not eye)",
+        "Manicuring Preparations",
+        "Personal Cleanliness",
+        "Men’s beauty products",
+        "Skin Care Preparations (Creams, Lotions, Powders, and Sprays)",
+        "Suntan Preparations",
+        "Oral Hygiene Products",
+        "Baby Products"
+      ],
+      "default":"Hair Coloring Preparations"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "minLength": 10,
+      "maxLength": 1024
+    },
+    "location": {
+      "type": "string",
+      "title": "Location"
+    },
+    "price": {
+      "type": "number",
+      "title": "Price in ETH"
+    },
+    "pictures": {
+      "type": "array",
+      "title": "Select photos",
+      "items": {
+        "type": "string",
+        "format": "data-url"
+      }
+    }
+  }
+}
