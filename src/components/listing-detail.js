@@ -193,6 +193,38 @@ class ListingsDetail extends Component {
                     </p>
                   </div>
                 }
+                {this.state.location &&
+                <div className="price d-flex justify-content-between">
+                  <p>Location</p>
+                  <p className="text-right">
+                    {this.state.location}
+                  </p>
+                </div>
+                }
+                {this.state.weekDayFrom && <div className="price d-flex justify-content-between">
+                  <p>Booking date</p>
+                  <p className="text-right">
+                    <input
+                      id="bookingDate"
+                      type="date"
+                      style={{ color: 'black', fontWeight: 'normal', maxWidth: '9em' }}
+                    />
+                  </p>
+                </div>}
+                {this.state.dayHourFrom && <div className="price d-flex justify-content-between">
+                  <p>Booking hour</p>
+                  <p className="text-right">
+                    <input
+                      id="bookingHour"
+                      type="number"
+                      min={this.state.dayHourFrom}
+                      max={this.state.dayHourTo}
+                      defaultValue={this.state.dayHourFrom}
+                      style={{ color: 'black', fontWeight: 'normal' }}
+                    />
+                  </p>
+                </div>}
+
                 {/* Via Matt 4/5/2018: Hold off on allowing buyers to select quantity > 1 */}
                 {/* <div className="quantity d-flex justify-content-between">
                                   <p>Quantity</p>
