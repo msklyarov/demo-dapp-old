@@ -1,6 +1,6 @@
 {
   "$schema":"http://json-schema.org/draft-06/schema#",
-  "description": "Distributed by Jolly",
+  "description": "Distributed by Jolyy",
   "type": "object",
   "required": ["name","category","description","price"],
   "properties": {
