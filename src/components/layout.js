@@ -7,14 +7,14 @@ const Layout = ({ children }) => (
   <Fragment>
     <main className="d-flex flex-column">
       <NavBar />
-      <section style={{ margin: 'auto' }}>
-        <div style={{ display: 'inline-block', verticalAlign: 'top' }}>
-          {window.location.href.endsWith('/#/') && <FacetBlock/>}
-        </div>
-        <div
-          style={{ display: 'inline-block' }}
-        >
-          {children}
+      <section className="container">
+        <div className="row">
+          <div style={{ verticalAlign: 'top', maxWidth: '12em' }}>
+            {window.location.href.endsWith('/#/') && <FacetBlock />}
+          </div>
+          <div id="shop-items">
+            {children}
+          </div>
         </div>
       </section>
     </main>

@@ -25,6 +25,8 @@ class NavBarFacetSwitch extends Component {
     const { isEnabled } = nextProps.facet;
     this.setState({ isEnabled });
     document.getElementById('filtering-block').className = !isEnabled ? 'hidden' : ''
+    document.getElementById('shop-items').className = !isEnabled ? 'shop-items-100' : 'shop-items-100-12em'
+
   }
 
   handleFacetSwitchChange(e) {
@@ -32,6 +34,7 @@ class NavBarFacetSwitch extends Component {
     this.setState({ isEnabled });
     this.props.setFacetState(isEnabled)
     document.getElementById('filtering-block').className = !isEnabled ? 'hidden' : ''
+    document.getElementById('shop-items').className = !isEnabled ? 'shop-items-100' : 'shop-items-100-15em'
   }
 
   render() {
