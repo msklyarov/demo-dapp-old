@@ -43,6 +43,7 @@ class NavBarFacetSwitch extends Component {
         <input
           id="showFilter"
           type="checkbox"
+          style={{ width: '1em', height: '1em', clear: 'both' }}
           checked={this.state.isEnabled}
           onChange={this.handleFacetSwitchChange}
         />

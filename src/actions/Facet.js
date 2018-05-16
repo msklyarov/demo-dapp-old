@@ -8,7 +8,7 @@ export const FacetConstants = keyMirror(
   'FACET'
 )
 
-export const initialState = { isEnabled: false }
+export const initialState = { isEnabled: true }
 
 const demoAppStorageKey = 'dapp-facet'
 
