@@ -201,29 +201,37 @@ class ListingsDetail extends Component {
                   </p>
                 </div>
                 }
-                {this.state.weekDayFrom && <div className="price d-flex justify-content-between">
-                  <p>Booking date</p>
-                  <p className="text-right">
-                    <input
-                      id="bookingDate"
-                      type="date"
-                      style={{ color: 'black', fontWeight: 'normal', maxWidth: '9em' }}
-                    />
-                  </p>
-                </div>}
-                {this.state.dayHourFrom && <div className="price d-flex justify-content-between">
-                  <p>Booking hour</p>
-                  <p className="text-right">
-                    <input
-                      id="bookingHour"
-                      type="number"
-                      min={this.state.dayHourFrom}
-                      max={this.state.dayHourTo}
-                      defaultValue={this.state.dayHourFrom}
-                      style={{ color: 'black', fontWeight: 'normal' }}
-                    />
-                  </p>
-                </div>}
+                {this.props.listingAddress && (
+                  <form>
+                    <div className="form-group">
+                      {this.state.weekDayFrom && <div className="price d-flex justify-content-between">
+                        <p>Booking date</p>
+                        <p className="text-right">
+                          <input
+                            id="bookingDate"
+                            type="date"
+                            className="form-control"
+                            style={{ height: '2em', width: '10em' }}
+                          />
+                        </p>
+                      </div>}
+                      {this.state.dayHourFrom && <div className="price d-flex justify-content-between">
+                        <p>Booking hour</p>
+                        <p className="text-right">
+                          <input
+                            id="bookingHour"
+                            type="number"
+                            className="form-control"
+                            style={{ height: '2em', width: '4em' }}
+                            min={this.state.dayHourFrom}
+                            max={this.state.dayHourTo}
+                            defaultValue={this.state.dayHourFrom}
+                          />
+                        </p>
+                      </div>}
+                    </div>
+                  </form>
+                )}
 
                 {/* Via Matt 4/5/2018: Hold off on allowing buyers to select quantity > 1 */}
                 {/* <div className="quantity d-flex justify-content-between">
