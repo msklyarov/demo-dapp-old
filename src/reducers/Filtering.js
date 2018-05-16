@@ -1,4 +1,4 @@
-import { FilteringConstants, initialState } from '../actions/Filtering'
+import { FilteringConstants, initialState, clearedState } from '../actions/Filtering'
 
 export default function Filtering(state = initialState, action = { payload: {} }) {
   switch (action.type) {
@@ -10,6 +10,9 @@ export default function Filtering(state = initialState, action = { payload: {} }
 
     case FilteringConstants.RESET_STATE:
       return initialState
+
+    case FilteringConstants.CLEAR_STATE:
+      return clearedState
 
     default:
       return state

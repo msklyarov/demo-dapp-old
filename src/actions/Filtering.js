@@ -7,6 +7,7 @@ export const FilteringConstants = keyMirror(
     GET_STATE: null,
     SET_STATE: null,
     RESET_STATE: null,
+    CLEAR_STATE: null,
   },
   'FILTERING'
 )
@@ -26,10 +27,6 @@ export const sortOrder = {
 export const initialState = {
   location: '',
   name: '',
-  // listingTypes: [
-  //   "Beauty services",
-  //   "Cosmetics"
-  // ],
   beautyServices: beautyServicesJson.properties.category.enum,
   cosmetics: cosmeticsJson.properties.category.enum,
   weekDays: [
@@ -41,6 +38,18 @@ export const initialState = {
     "Friday",
     "Saturday"
   ],
+  dayHourFrom: 8,
+  dayHourTo: 20,
+  sortKey: sortKey.none,
+  sortOrder: null,
+}
+
+export const clearedState = {
+  location: '',
+  name: '',
+  beautyServices: [],
+  cosmetics: [],
+  weekDays: [],
   dayHourFrom: 8,
   dayHourTo: 20,
   sortKey: sortKey.none,
@@ -72,5 +81,12 @@ export function resetFiltering() {
   return async function(dispatch) {
     window.localStorage.removeItem(demoAppStorageKey)
     dispatch({ type: FilteringConstants.RESET_STATE })
+  }
+}
+
+export function clearFiltering() {
+  return async function(dispatch) {
+    window.localStorage.setItem(demoAppStorageKey, JSON.stringify(clearedState))
+    dispatch({ type: FilteringConstants.CLEAR_STATE, payload: clearedState })
   }
 }
